@@ -1,62 +1,28 @@
 {
-  "name": "Luoo.qy",
-  "version": "1.1",
-  "latestUpdate": "2017 / 07 / 02",
-  "description": "Luoo.qy",
-  "main": "main.js",
-  "config": {
-    "server": "115.159.29.32:80"
-  },
-  "dependencies": {
-    "cheerio": "^1.0.0-rc.1",
-    "colors": "^1.1.2",
-    "extract-zip": "^1.6.5",
-    "nedb": "^1.8.0",
-    "node-fs-extra": "^0.8.2",
-    "request": "^2.81.0",
-    "request-promise-native": "^1.0.4",
-    "tough-cookie": "^2.3.2"
+  "name": "luoo.qy",
+  "productName": "luoo.qy",
+  "version": "2.0.0",
+  "description": "",
+  "main": "./dist",
+  "scripts": {
+    "start": "./node_modules/.bin/electron .",
+    "copy:static": "cp -rf ./app/static/db ./dist & cp -rf ./app/static/user ./dist",
+    "dev:view": "cd ./view; npm start",
+    "dev:main": "cd ./app; npm start",
+    "build:view": "cd ./view; npm run build",
+    "build:main": "cd ./app; npm run build",
+    "pack": "cp -rf ./app/static/db ./dist & cp -rf ./app/static/user ./dist & rm -rf ./out & node ./build",
+    "clean": "rm -rf ./app/dist ./dist ./out",
+    "debug": "node --inspect -r /usr/local/lib/node_modules/ts-node/register ./app"
   },
   "devDependencies": {
-    "autoprefixer": "^6.7.2",
-    "babel-core": "^6.22.1",
-    "babel-loader": "^6.2.10",
-    "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-stage-2": "^6.24.1",
-    "babel-preset-vue": "^0.2.0",
-    "css-loader": "^0.28.0",
-    "electron": "^1.6.10",
-    "electron-packager": "^8.7.1",
-    "electron-rebuild": "^1.5.11",
-    "file-loader": "^0.11.1",
-    "node-sass": "^4.5.3",
-    "sass-loader": "^6.0.5",
-    "svg-loader": "^0.0.2",
-    "uglifyjs-webpack-plugin": "^0.4.3",
-    "url-loader": "^0.5.8",
-    "vue": "^2.3.3",
-    "vue-loader": "^12.2.0",
-    "vue-template-compiler": "^2.3.3",
-    "vuex": "^2.3.1",
-    "webpack": "^2.6.1",
-    "webpack-dev-server": "^2.4.5"
+    "electron": "4.0.6",
+    "electron-packager": "^13.1.0",
+    "eslint": "5.6.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "open": "0.0.5"
   },
-  "scripts": {
-    "start": "electron-rebuild && electron main.js",
-    "dev": "webpack-dev-server --content-base",
-    "build-mac": "electron-packager . Luoo.qy --platform=darwin --arch=x64 --out build --icon=build/icon.icns --ignore=node_modules --ignore=upgrade --ignore=src --ignore=README.md --ignore=.idea --ignore=webpack.config.js --ignore=yarn --ignore=.gitignore --overwrite --rebuild",
-    "build-win": "electron-packager . Luoo.qy --platform=win32 --arch=x64 --out build --icon=build/icon.ico --ignore=node_modules --ignore=upgrade --ignore=src --ignore=README.md --ignore=.idea --ignore=webpack.config.js --ignore=yarn --ignore=.gitignore --overwrite --rebuild",
-    "build-linux": "electron-packager . Luoo.qy --platform=linux --arch=x64 --out build --icon=build/icon.ico --ignore=node_modules --ignore=upgrade --ignore=src --ignore=README.md --ignore=.idea --ignore=webpack.config.js --ignore=yarn --ignore=.gitignore --overwrite --rebuild"
-  },
-  "keywords": [
-    "Luoo.qy",
-    "music"
-  ],
-  "author": "https://github.com/HuQingyang",
-  "license": "ISC",
-  "ecmaFeatures": {
-    "modules": true
-  },
-  "repository": "https://HuQingyang@github.com/HuQingyang/Luoo.qy.git"
+  "keywords": [],
+  "author": "qingyang",
+  "license": "MIT"
 }
